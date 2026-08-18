@@ -7,6 +7,7 @@ import envy
 APP_NAME = "envy-mcp-hello"
 ENVY_SOURCE = "envy[mcp] @ git+https://github.com/aaazzam/envy.git@main"
 FASTMCP_VERSION = "fastmcp==4.0.0b3"
+GITHUB_SECRET_NAME = "envy-github"
 
 app = envy.Envy(APP_NAME)
 hello = app.env(
@@ -28,17 +29,19 @@ control_plane_image = (
     .uv_pip_install(ENVY_SOURCE, FASTMCP_VERSION)
     .add_local_python_source("envy_mcp_hello", copy=True)
 )
+github_secret = modal.Secret.from_name(GITHUB_SECRET_NAME)
 
 mcp = app.mcp(
     instructions=(
         "This is a public hello-world Envy MCP server. "
         "Create a hello sandbox, then use the file and shell tools."
-    )
+    ),
+    git_secret=github_secret,
 )
 modal_app = modal.App(APP_NAME)
 
 
-@modal_app.function(image=control_plane_image)
+@modal_app.function(image=control_plane_image, secrets=[github_secret])
 @modal.asgi_app()
 def serve():
     return mcp.http_app(stateless_http=True)

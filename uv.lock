@@ -558,7 +558,7 @@ wheels = [
 [[package]]
 name = "envy"
 version = "0.1.0"
-source = { git = "https://github.com/aaazzam/envy.git?rev=main#22439a4f31c781c7e4927f8f9eca8948e5257f5b" }
+source = { git = "https://github.com/aaazzam/envy.git?rev=main#70a6ca559089ca0a74eaf8e6dc2b0fb6cfe68c1e" }
 
 [package.optional-dependencies]
 mcp = [

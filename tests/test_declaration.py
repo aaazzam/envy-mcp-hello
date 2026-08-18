@@ -26,6 +26,7 @@ class DeclarationTests(unittest.TestCase):
             {
                 "create_sandbox",
                 "kill_sandbox",
+                "publish_pull_request",
                 "bash",
                 "read",
                 "write",
