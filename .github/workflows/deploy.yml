@@ -39,7 +39,7 @@ jobs:
         run: uv run pytest -q
 
       - name: Deploy to Modal
-        run: uv run modal deploy devboxes.py::modal_app
+        run: uv run modal deploy devboxes.py::modal_app > /tmp/modal-deploy.log 2>&1
 
       - name: Rebake environment images
         run: |

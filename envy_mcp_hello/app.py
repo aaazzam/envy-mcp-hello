@@ -42,6 +42,6 @@ modal_app = modal.App(APP_NAME)
 
 
 @modal_app.function(image=control_plane_image, secrets=[github_secret])
-@modal.asgi_app(requires_proxy_auth=True)
+@modal.asgi_app()
 def serve():
     return mcp.http_app(stateless_http=True)
