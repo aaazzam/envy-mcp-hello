@@ -4,7 +4,7 @@ import modal
 import envy
 
 
-APP_NAME = "envy-mcp-hello"
+APP_NAME = "envy-mcp-hello-private"
 ENVY_SOURCE = "envy[mcp] @ git+https://github.com/aaazzam/envy.git@main"
 FASTMCP_VERSION = "fastmcp==4.0.0b3"
 GITHUB_SECRET_NAME = "envy-github"
@@ -42,6 +42,6 @@ modal_app = modal.App(APP_NAME)
 
 
 @modal_app.function(image=control_plane_image, secrets=[github_secret])
-@modal.asgi_app()
+@modal.asgi_app(requires_proxy_auth=True)
 def serve():
     return mcp.http_app(stateless_http=True)
