@@ -1,5 +1,6 @@
 import asyncio
 import unittest
+from pathlib import Path
 
 import devboxes
 from envy import GitSource
@@ -33,6 +34,13 @@ class DeclarationTests(unittest.TestCase):
                 "grep",
             }.issubset(asyncio.run(names()))
         )
+
+    def test_deploy_workflow_rebakes_environment_images(self):
+        workflow = (
+            Path(__file__).parents[1] / ".github/workflows/deploy.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Rebake environment images", workflow)
+        self.assertIn("runner.rebake()", workflow)
 
 
 if __name__ == "__main__":

@@ -39,3 +39,13 @@ jobs:
 
       - name: Deploy to Modal
         run: modal deploy devboxes.py::modal_app
+
+      - name: Rebake environment images
+        run: |
+          python - <<'PY'
+          import envy
+          import devboxes
+
+          runner = envy.ModalRunner(devboxes.app, show_output=True)
+          print(runner.rebake())
+          PY

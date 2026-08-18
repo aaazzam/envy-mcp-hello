@@ -54,6 +54,6 @@ With Python and the MCP extra installed:
 python -m unittest discover -s tests
 ```
 
-Live Modal integration is deliberately not part of the GitHub Action. The
-Action deploys the public control plane; sandbox creation happens when an MCP
-client calls `create_sandbox`.
+The GitHub Action deploys the public control plane and rebakes the environment
+image, while sandbox creation happens when an MCP client calls
+`create_sandbox`.
