@@ -39,9 +39,11 @@ Point an MCP client at the URL and call:
 1. `create_sandbox` with `environment: "hello"`
 2. `write` `/tmp/hello/message.txt` with `hello from MCP`
 3. `read`, `edit`, `bash`, `glob`, or `grep` against that file
-4. `kill_sandbox` when finished
+4. `read` `/tmp/hello/README.md` or run `/tmp/hello/hello.py`
+5. `kill_sandbox` when finished
 
-The sandbox is ephemeral and uses `/tmp/hello` as its working directory.
+The sandbox is ephemeral, uses `/tmp/hello` as its working directory, and is
+seeded with a small `README.md` and `hello.py` hello-world fixture.
 
 ## Local validation
 
