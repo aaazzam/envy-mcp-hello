@@ -26,7 +26,10 @@ jobs:
       - name: Install Modal and Envy
         run: |
           python -m pip install --upgrade pip
-          python -m pip install "envy[mcp] @ git+https://github.com/aaazzam/envy.git@main"
+          python -m pip install \
+            "envy[mcp] @ git+https://github.com/aaazzam/envy.git@main" \
+            "fastmcp==4.0.0b3" \
+            "fastmcp-slim==4.0.0b3"
 
       - name: Validate the declaration
         run: python -m compileall -q devboxes.py tests

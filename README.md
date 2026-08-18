@@ -5,6 +5,9 @@ one `hello` environment and the standard Envy MCP tools:
 
 `create_sandbox` · `kill_sandbox` · `bash` · `read` · `write` · `edit` · `glob` · `grep`
 
+This example pins the current FastMCP 4 prerelease (`4.0.0b3`) so the public
+deployment exercises the v4 server and client protocol.
+
 ## Deploy it
 
 1. Create a Modal token in the `modal-labs` workspace.
@@ -20,11 +23,10 @@ The workflow installs Envy from the public [`aaazzam/envy`](https://github.com/a
 repository, runs the declaration test, and deploys the `modal_app` in
 `devboxes.py` to Modal.
 
-After the first deployment, Modal prints the web endpoint in the deploy output.
-Your MCP URL is that endpoint with `/mcp` appended:
+The deployed MCP URL is:
 
 ```text
-https://<modal-web-endpoint>/mcp
+https://modal-labs-aaazzam-dev--envy-mcp-hello-serve.modal.run/mcp
 ```
 
 The endpoint is intentionally public for experimentation. Do not put secrets

@@ -6,6 +6,7 @@ import envy
 
 APP_NAME = "envy-mcp-hello"
 ENVY_SOURCE = "envy[mcp] @ git+https://github.com/aaazzam/envy.git@main"
+FASTMCP_VERSION = "fastmcp==4.0.0b3"
 
 app = envy.Envy(APP_NAME)
 hello = app.env(
@@ -20,7 +21,7 @@ hello = app.env(
 control_plane_image = (
     modal.Image.debian_slim()
     .apt_install("git")
-    .pip_install(ENVY_SOURCE)
+    .pip_install(ENVY_SOURCE, FASTMCP_VERSION)
     .add_local_python_source("devboxes", copy=True)
 )
 
