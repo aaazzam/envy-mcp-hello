@@ -16,7 +16,7 @@ hello = app.env(
         envy.run_commands(
             "printf '%s\\n' '# Envy Hello Sandbox' '' "
             "'This file was seeded by the public Envy example.' > README.md",
-            "printf '%s\\n' 'print(\"hello from Envy\")' > hello.py",
+            "printf '%s\\n' 'print(\"hello from WOAHHH\")' > hello.py",
         )
     ],
     env={"ENV": "hello"},
