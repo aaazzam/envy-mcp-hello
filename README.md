@@ -16,6 +16,8 @@ deployment exercises the v4 server and client protocol.
 
    - `MODAL_TOKEN_ID`
    - `MODAL_TOKEN_SECRET`
+   - `ENVY_MODAL_APP_NAME`
+   - `ENVY_MODAL_ENDPOINT_LABEL`
 
 3. Create a Modal Secret named `envy-github` containing `GITHUB_TOKEN`. Use a
    fine-grained token restricted to this repository with only the contents and
@@ -31,6 +33,10 @@ The deployed MCP URL is shared out-of-band rather than committed here. The
 endpoint is intentionally public and does not use Modal proxy authentication;
 URL secrecy is not a security boundary. Do not put secrets or private source
 code in the hello sandbox.
+
+`ENVY_MODAL_APP_NAME` and `ENVY_MODAL_ENDPOINT_LABEL` are stable, opaque
+deployment values. Keep them out of the repository and reuse them across
+redeploys so the same endpoint is updated instead of creating a new app.
 
 ## Try it
 

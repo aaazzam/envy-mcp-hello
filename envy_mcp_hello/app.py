@@ -1,10 +1,14 @@
 """Envy and Modal declarations for the public hello-world server."""
 
+import os
+
 import modal
 import envy
 
 
-APP_NAME = "envy-mcp-hello-private"
+DEFAULT_APP_NAME = "envy-mcp-hello-private"
+APP_NAME = os.environ.get("ENVY_MODAL_APP_NAME") or DEFAULT_APP_NAME
+ENDPOINT_LABEL = os.environ.get("ENVY_MODAL_ENDPOINT_LABEL") or "mcp"
 ENVY_SOURCE = "envy[mcp] @ git+https://github.com/aaazzam/envy.git@main"
 FASTMCP_VERSION = "fastmcp==4.0.0b3"
 GITHUB_SECRET_NAME = "envy-github"
@@ -42,6 +46,6 @@ modal_app = modal.App(APP_NAME)
 
 
 @modal_app.function(image=control_plane_image, secrets=[github_secret])
-@modal.asgi_app()
+@modal.asgi_app(label=ENDPOINT_LABEL)
 def serve():
     return mcp.http_app(stateless_http=True)

@@ -15,6 +15,8 @@ jobs:
       MODAL_ENVIRONMENT: aaazzam-dev
       MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
       MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      ENVY_MODAL_APP_NAME: ${{ secrets.ENVY_MODAL_APP_NAME }}
+      ENVY_MODAL_ENDPOINT_LABEL: ${{ secrets.ENVY_MODAL_ENDPOINT_LABEL }}
     steps:
       - name: Check out the example
         uses: actions/checkout@v4
