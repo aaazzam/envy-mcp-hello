@@ -558,7 +558,7 @@ wheels = [
 [[package]]
 name = "envy"
 version = "0.1.0"
-source = { git = "https://github.com/aaazzam/envy.git?rev=main#70a6ca559089ca0a74eaf8e6dc2b0fb6cfe68c1e" }
+source = { git = "https://github.com/aaazzam/envy.git?rev=0c334bed08f1f3d2f0782ed5dd627d3bfe3dc5fb#0c334bed08f1f3d2f0782ed5dd627d3bfe3dc5fb" }
 
 [package.optional-dependencies]
 mcp = [
@@ -583,7 +583,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "envy", extras = ["mcp"], git = "https://github.com/aaazzam/envy.git?rev=main" },
+    { name = "envy", extras = ["mcp"], git = "https://github.com/aaazzam/envy.git?rev=0c334bed08f1f3d2f0782ed5dd627d3bfe3dc5fb" },
     { name = "fastmcp", specifier = "==4.0.0b3" },
 ]
 

@@ -9,9 +9,13 @@ import envy
 DEFAULT_APP_NAME = "envy-mcp-hello-private"
 APP_NAME = os.environ.get("ENVY_MODAL_APP_NAME") or DEFAULT_APP_NAME
 ENDPOINT_LABEL = os.environ.get("ENVY_MODAL_ENDPOINT_LABEL") or "mcp"
-ENVY_SOURCE = "envy[mcp] @ git+https://github.com/aaazzam/envy.git@main"
+ENVY_SOURCE = (
+    "envy[mcp] @ git+https://github.com/aaazzam/envy.git@"
+    "0c334bed08f1f3d2f0782ed5dd627d3bfe3dc5fb"
+)
 FASTMCP_VERSION = "fastmcp==4.0.0b3"
 GITHUB_SECRET_NAME = "envy-github"
+GITHUB_MCP_URL = "https://api.githubcopilot.com/mcp/"
 
 app = envy.Envy(APP_NAME)
 hello = app.env(
@@ -41,6 +45,7 @@ mcp = app.mcp(
         "Create a hello sandbox, then use the file and shell tools."
     ),
     git_secret=github_secret,
+    github_mcp_url=GITHUB_MCP_URL,
 )
 modal_app = modal.App(APP_NAME)
 

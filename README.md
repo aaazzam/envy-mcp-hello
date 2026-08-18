@@ -1,9 +1,10 @@
 # envy-mcp-hello
 
 A tiny public MCP server backed by an Envy-managed Modal sandbox. It exposes
-one `hello` environment and the standard Envy MCP tools:
+one `hello` environment, Envy's sandbox tools, and GitHub's pull-request
+toolset:
 
-`create_sandbox` · `kill_sandbox` · `publish_pull_request` · `bash` · `read` · `write` · `edit` · `glob` · `grep`
+`create_sandbox` · `kill_sandbox` · `search_tools` · `call_tool`
 
 This example pins the current FastMCP 4 prerelease (`4.0.0b3`) so the public
 deployment exercises the v4 server and client protocol.
@@ -47,7 +48,8 @@ Point an MCP client at the URL and call:
 3. `read`, `edit`, `bash`, `glob`, or `grep` against that file
 4. `read` `/tmp/hello/README.md` or run `/tmp/hello/hello.py`
 5. Stage and commit a branch inside the sandbox.
-6. Call `publish_pull_request` to push the committed branch and open the PR.
+6. Search for and call the GitHub pull-request tools to push the committed
+   branch and open or update a PR.
 7. `kill_sandbox` when finished
 
 The sandbox is ephemeral, uses `/tmp/hello` as its working directory, and is
