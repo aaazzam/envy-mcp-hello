@@ -40,6 +40,7 @@ class DeclarationTests(unittest.TestCase):
         workflow = (
             Path(__file__).parents[1] / ".github/workflows/deploy.yml"
         ).read_text(encoding="utf-8")
+        self.assertIn("MODAL_ENVIRONMENT: aaazzam-dev", workflow)
         self.assertIn("Rebake environment images", workflow)
         self.assertIn("runner.rebake()", workflow)
 
