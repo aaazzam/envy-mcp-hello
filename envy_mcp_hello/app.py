@@ -11,7 +11,7 @@ APP_NAME = os.environ.get("ENVY_MODAL_APP_NAME") or DEFAULT_APP_NAME
 ENDPOINT_LABEL = os.environ.get("ENVY_MODAL_ENDPOINT_LABEL") or "mcp"
 ENVY_SOURCE = (
     "envy[mcp] @ git+https://github.com/aaazzam/envy.git@"
-    "0c334bed08f1f3d2f0782ed5dd627d3bfe3dc5fb"
+    "9a2f38d627d01aed96187d62e8dc2eae00559f9a"
 )
 FASTMCP_VERSION = "fastmcp==4.0.0b3"
 GITHUB_SECRET_NAME = "envy-github"

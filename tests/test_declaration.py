@@ -26,8 +26,12 @@ class DeclarationTests(unittest.TestCase):
             {
                 "create_sandbox",
                 "kill_sandbox",
-                "search_tools",
-                "call_tool",
+                "bash",
+                "edit",
+                "glob",
+                "grep",
+                "read",
+                "write",
             }.issubset(asyncio.run(names()))
         )
 

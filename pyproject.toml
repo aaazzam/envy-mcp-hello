@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "A tiny public MCP server backed by an Envy-managed Modal sandbox"
 requires-python = ">=3.11"
 dependencies = [
-    "envy[mcp] @ git+https://github.com/aaazzam/envy.git@0c334bed08f1f3d2f0782ed5dd627d3bfe3dc5fb",
+    "envy[mcp] @ git+https://github.com/aaazzam/envy.git@9a2f38d627d01aed96187d62e8dc2eae00559f9a",
     "fastmcp==4.0.0b3",
 ]
 
