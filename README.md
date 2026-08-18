@@ -27,14 +27,15 @@ The workflow installs Envy from the public [`aaazzam/envy`](https://github.com/a
 repository with uv, runs the declaration tests, and deploys the `modal_app`
 in `devboxes.py` to Modal.
 
-The deployed MCP URL is:
+The deployed authenticated MCP URL is:
 
 ```text
-https://modal-labs-aaazzam-dev--envy-mcp-hello-serve.modal.run/mcp
+https://modal-labs-aaazzam-dev--envy-mcp-hello-private-serve.modal.run/mcp
 ```
 
-The endpoint is intentionally public for experimentation. Do not put secrets
-or private source code in the hello sandbox.
+The endpoint requires Modal proxy authentication. Configure the MCP client
+with the `Modal-Key` and `Modal-Secret` headers from a Modal proxy token. Do
+not put secrets or private source code in the hello sandbox.
 
 ## Try it
 
