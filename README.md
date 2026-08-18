@@ -17,7 +17,8 @@ one `hello` environment and the standard Envy MCP tools:
 3. Push to `main`, or run **Deploy MCP server** manually from the Actions tab.
 
 The workflow installs Envy from the public [`aaazzam/envy`](https://github.com/aaazzam/envy)
-repository, runs the declaration test, and deploys `devboxes.py` to Modal.
+repository, runs the declaration test, and deploys the `modal_app` in
+`devboxes.py` to Modal.
 
 After the first deployment, Modal prints the web endpoint in the deploy output.
 Your MCP URL is that endpoint with `/mcp` appended:
@@ -51,4 +52,3 @@ python -m unittest discover -s tests
 Live Modal integration is deliberately not part of the GitHub Action. The
 Action deploys the public control plane; sandbox creation happens when an MCP
 client calls `create_sandbox`.
-

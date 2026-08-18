@@ -19,6 +19,7 @@ hello = app.env(
 # image and Envy transforms.
 control_plane_image = (
     modal.Image.debian_slim()
+    .apt_install("git")
     .pip_install(ENVY_SOURCE)
     .add_local_python_source("devboxes", copy=True)
 )
@@ -36,4 +37,3 @@ modal_app = modal.App(APP_NAME)
 @modal.asgi_app()
 def serve():
     return mcp.http_app(stateless_http=True)
-
