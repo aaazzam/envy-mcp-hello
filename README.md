@@ -69,9 +69,9 @@ The package declaration lives in `envy_mcp_hello/app.py`; `devboxes.py` is a
 small compatibility entry point for the Modal CLI, and `hello.py` is the code
 that gets checked out into the sandbox.
 
-The GitHub Action deploys the public control plane and performs an initial
-rebake. Envy also registers a recurring 30-minute rebake cron on the Modal app,
-while sandbox creation happens when an MCP client calls `create_sandbox`.
+The GitHub Action deploys the public control plane and rebakes the environment
+image, while sandbox creation happens when an MCP client calls
+`create_sandbox`.
 
 Because this public example can publish to GitHub, protect the MCP endpoint or
 use a narrowly scoped, disposable GitHub token before exposing it beyond a

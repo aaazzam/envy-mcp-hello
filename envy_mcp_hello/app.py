@@ -11,7 +11,7 @@ APP_NAME = os.environ.get("ENVY_MODAL_APP_NAME") or DEFAULT_APP_NAME
 ENDPOINT_LABEL = os.environ.get("ENVY_MODAL_ENDPOINT_LABEL") or "mcp"
 ENVY_SOURCE = (
     "envy[mcp] @ git+https://github.com/aaazzam/envy.git@"
-    "8caa045d88fc873a90de11bd02729e3c3e0b3260"
+    "0c334bed08f1f3d2f0782ed5dd627d3bfe3dc5fb"
 )
 FASTMCP_VERSION = "fastmcp==4.0.0b3"
 GITHUB_SECRET_NAME = "envy-github"
@@ -38,17 +38,16 @@ control_plane_image = (
     .add_local_python_source("envy_mcp_hello", copy=True)
 )
 github_secret = modal.Secret.from_name(GITHUB_SECRET_NAME)
-modal_app = modal.App(APP_NAME)
 
 mcp = app.mcp(
     instructions=(
         "This is a public hello-world Envy MCP server. "
         "Create a hello sandbox, then use the file and shell tools."
     ),
-    modal_app=modal_app,
     git_secret=github_secret,
     github_mcp_url=GITHUB_MCP_URL,
 )
+modal_app = modal.App(APP_NAME)
 
 
 @modal_app.function(image=control_plane_image, secrets=[github_secret])
