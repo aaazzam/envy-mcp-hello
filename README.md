@@ -20,8 +20,8 @@ deployment exercises the v4 server and client protocol.
 3. Push to `main`, or run **Deploy MCP server** manually from the Actions tab.
 
 The workflow installs Envy from the public [`aaazzam/envy`](https://github.com/aaazzam/envy)
-repository, runs the declaration test, and deploys the `modal_app` in
-`devboxes.py` to Modal.
+repository with uv, runs the declaration tests, and deploys the `modal_app`
+in `devboxes.py` to Modal.
 
 The deployed MCP URL is:
 
@@ -48,11 +48,16 @@ automatically adds Git to the sandbox image before the checkout.
 
 ## Local validation
 
-With Python and the MCP extra installed:
+Install the locked environment and run the tests with uv:
 
 ```bash
-python -m unittest discover -s tests
+uv sync --dev
+uv run pytest
 ```
+
+The package declaration lives in `envy_mcp_hello/app.py`; `devboxes.py` is a
+small compatibility entry point for the Modal CLI, and `hello.py` is the code
+that gets checked out into the sandbox.
 
 The GitHub Action deploys the public control plane and rebakes the environment
 image, while sandbox creation happens when an MCP client calls

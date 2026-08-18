@@ -2,25 +2,25 @@ import asyncio
 import unittest
 from pathlib import Path
 
-import devboxes
 from envy import GitSource
+from envy_mcp_hello import app, hello, mcp
 
 
 class DeclarationTests(unittest.TestCase):
     def test_hello_environment_and_mcp_server_are_declared(self):
-        self.assertEqual(devboxes.app.environments, ("hello",))
-        self.assertEqual(devboxes.hello.workdir, "/tmp/hello")
-        self.assertIsInstance(devboxes.hello.source, GitSource)
-        assert isinstance(devboxes.hello.source, GitSource)
+        self.assertEqual(app.environments, ("hello",))
+        self.assertEqual(hello.workdir, "/tmp/hello")
+        self.assertIsInstance(hello.source, GitSource)
+        assert isinstance(hello.source, GitSource)
         self.assertEqual(
-            devboxes.hello.source.url,
+            hello.source.url,
             "https://github.com/aaazzam/envy-mcp-hello.git",
         )
-        self.assertEqual(devboxes.hello.source.ref, "main")
-        self.assertEqual(devboxes.hello.source.workdir, "/tmp/hello")
+        self.assertEqual(hello.source.ref, "main")
+        self.assertEqual(hello.source.workdir, "/tmp/hello")
 
         async def names():
-            return {tool.name for tool in await devboxes.mcp.list_tools()}
+            return {tool.name for tool in await mcp.list_tools()}
 
         self.assertTrue(
             {
