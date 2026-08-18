@@ -12,13 +12,11 @@ app = envy.Envy(APP_NAME)
 hello = app.env(
     "hello",
     base=modal.Image.debian_slim(),
-    setup=[
-        envy.run_commands(
-            "printf '%s\\n' '# Envy Hello Sandbox' '' "
-            "'This file was seeded by the public Envy example.' > README.md",
-            "printf '%s\\n' 'print(\"hello from Envy\")' > hello.py",
-        )
-    ],
+    source=envy.GitSource.github(
+        "aaazzam/envy-mcp-hello",
+        ref="main",
+        workdir="/tmp/hello",
+    ),
     env={"ENV": "hello"},
 )
 

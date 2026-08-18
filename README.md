@@ -43,7 +43,8 @@ Point an MCP client at the URL and call:
 5. `kill_sandbox` when finished
 
 The sandbox is ephemeral, uses `/tmp/hello` as its working directory, and is
-seeded with a small `README.md` and `hello.py` hello-world fixture.
+backed by a Git checkout of this repository's `main` branch. `GitSource`
+automatically adds Git to the sandbox image before the checkout.
 
 ## Local validation
 
