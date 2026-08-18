@@ -1,0 +1,12 @@
+[project]
+name = "envy-mcp-hello"
+version = "0.1.0"
+description = "A tiny public MCP server backed by an Envy-managed Modal sandbox"
+requires-python = ">=3.11"
+dependencies = [
+    "envy[mcp] @ git+https://github.com/aaazzam/envy.git@main",
+]
+
+[tool.uv]
+package = false
+
